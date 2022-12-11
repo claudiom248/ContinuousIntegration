@@ -11,5 +11,12 @@ namespace WebTests.Services
             var weatherForecast = await sut.GetWeatherForecast();
             Assert.NotEmpty(weatherForecast);
         }
+
+        [Fact]
+        public void UncoveredMethod_Throws()
+        {
+            var sut = new WeatherForecastService();
+            Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
+        }
     }
 }
