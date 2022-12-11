@@ -11,12 +11,17 @@ jobs:
     name: build
     runs-on: ubuntu-latest
 
-    steps:
+    steps:    
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+        
+    - name: Install Required Tools
+      run: |
+        dotnet new tool-manifest
+        dotnet tool install dotnet-reportgenerator-globaltool
         
     - name: Restore dependencies
       run: dotnet restore
@@ -25,11 +30,19 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --logger html --results-directory "TestResults" --configuration Release --no-build --verbosity normal
+      run: dotnet test --collect:"XPlat Code Coverage" --logger trx --results-directory "TestResults" --configuration Release --no-build --verbosity normal
       
+    - name: Copy Coverage to Predictable Location
+      run: mkdir -p coverage && cp TestResults/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
+      
+    - name: Generate Report
+      run: dotnet reportgenerator -reports:coverage/coverage.cobertura.xml -targetdir:"coverage/report" -reporttypes:html
+        
     - name: Upload test results
       uses: actions/upload-artifact@v3
       with:
         name: dotnet-results
-        path: TestResults
+        path: |
+          TestResults
+          coverage
       if: ${{ always() }}
