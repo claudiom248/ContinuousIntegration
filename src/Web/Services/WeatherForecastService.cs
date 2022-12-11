@@ -22,6 +22,11 @@
             return Task.FromResult(result);
         }
 
+        public void UncoveredMethod()
+        {
+            throw new NotImplementedException();
+        }
+
         private static IEnumerable<WeatherForecast> GetWeatherForecastCore()
         {
             return Enumerable.Range(1, 5)
