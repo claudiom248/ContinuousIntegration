@@ -19,7 +19,9 @@ jobs:
         dotnet-version: 7.0.x
         
     - name: Install Required Tools
-      run: dotnet tool install dotnet-reportgenerator-globaltool
+      run: |
+        dotnet new tool-manifest
+        dotnet tool install dotnet-reportgenerator-globaltool
         
     - name: Restore dependencies
       run: dotnet restore
