@@ -27,7 +27,7 @@ namespace WebTests
             var jsonToken = JToken.Parse(responseContentAsString);
 
             response.EnsureSuccessStatusCode();
-            Assert.True(jsonToken.Type == JTokenType.Object);
+            Assert.True(jsonToken.Type == JTokenType.Array);
         }
     }
 }
