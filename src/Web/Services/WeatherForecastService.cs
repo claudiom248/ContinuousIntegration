@@ -27,6 +27,18 @@
             throw new NotImplementedException();
         }
 
+        public int PartiallyCoveredMethod(bool flag)
+        {
+            if (flag) 
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         private static IEnumerable<WeatherForecast> GetWeatherForecastCore()
         {
             return Enumerable.Range(1, 5)
