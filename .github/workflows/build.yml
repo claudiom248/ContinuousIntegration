@@ -25,11 +25,25 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --logger html --results-directory "TestResults" --configuration Release --no-build --verbosity normal
+      run: dotnet test --collect:"XPlat Code Coverage" --logger trx --results-directory "TestResults" --configuration Release --no-build --verbosity normal
+      
+    - name: Copy Coverage to Predictable Location
+      run: mv TestResults/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
+      
+    - name: Generate Report
+      run: dotnet reportgenerator -reports:coverage/coverage.cobertura.xml -targetdir:"coverage/report" -reporttypes:html
       
     - name: Upload test results
       uses: actions/upload-artifact@v3
       with:
         name: dotnet-results
         path: TestResults
+        
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-results
+        path: |
+          TestResults
+          coverage
       if: ${{ always() }}
