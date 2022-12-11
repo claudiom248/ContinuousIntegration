@@ -19,12 +19,16 @@ namespace WebTests.Services
             Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
         }
 
-        [Fact]
-        public void PartiallyCovedereMethod_Branch1()
+        [Theory]
+        [InlineData(true, 1, 1)]
+        [InlineData(true, 2, 2)]
+        [InlineData(true, 3, 3)]
+        [InlineData(false, 1, 0)]
+        public void PartiallyCovedereMethod_Branch1(bool flag, byte param, int expected)
         {
             var sut = new WeatherForecastService();
-            var result = sut.PartiallyCoveredMethod(true);
-            Assert.Equal(1, result);
+            var result = sut.PartiallyCoveredMethod(flag, param);
+            Assert.Equal(expected, result);
         }
     }
 }

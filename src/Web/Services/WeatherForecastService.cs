@@ -27,15 +27,33 @@
             throw new NotImplementedException();
         }
 
-        public int PartiallyCoveredMethod(bool flag)
+        public int PartiallyCoveredMethod(bool flag, byte param)
         {
             if (flag) 
             {
-                return 1;
+                if (param == 1)
+                {
+                    return 1;
+                }
+                else if (param == 2) 
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
             }
             else
             {
-                return 0;
+                if (param == 1)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
 
