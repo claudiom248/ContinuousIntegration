@@ -25,12 +25,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --logger html --results-directory "TestResults-${{ matrix.dotnet-version }}" /
+      run: dotnet test --logger html --results-directory "TestResults" /
         --configuration Release --no-build --verbosity normal
       
     - name: Upload test results
       uses: actions/upload-artifact@v3
       with:
-        name: dotnet-results-${{ matrix.dotnet-version }}
-        path: TestResults-${{ matrix.dotnet-version }}
+        name: dotnet-results
+        path: TestResults
       if: ${{ always() }}
