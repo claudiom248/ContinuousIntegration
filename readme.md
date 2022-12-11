@@ -1,1 +1,1 @@
-[![.NET](https://github.com/claudiom248/ContinuousIntegration/actions/workflows/dotnet.yml/badge.svg)](https://github.com/claudiom248/ContinuousIntegration/actions/workflows/dotnet.yml)
+[![build](https://github.com/claudiom248/ContinuousIntegration/actions/workflows/build.yml/badge.svg)](https://github.com/claudiom248/ContinuousIntegration/actions/workflows/build.yml)
