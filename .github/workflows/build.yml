@@ -34,6 +34,9 @@ jobs:
       
     - name: Copy Coverage to Predictable Location
       run: mkdir -p coverage && cp TestResults/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
+      
+    - name: Generate Report
+      run: dotnet reportgenerator -reports:coverage/coverage.cobertura.xml -targetdir:"coverage/report" -reporttypes:html
         
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
