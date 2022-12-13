@@ -22,10 +22,10 @@
             return Task.FromResult(result);
         }
 
-        public void UncoveredMethod()
-        {
-            throw new NotImplementedException();
-        }
+        //public void UncoveredMethod()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public int PartiallyCoveredMethod(bool flag, byte param)
         {
@@ -50,9 +50,13 @@
                 {
                     return 0;
                 }
-                else
+                else if (param == 2)
                 {
                     return 1;
+                }
+                else 
+                { 
+                    return 2; 
                 }
             }
         }
