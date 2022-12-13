@@ -12,7 +12,7 @@ namespace WebTests.Services
             Assert.NotEmpty(weatherForecast);
         }
 
-        //[Fact]
+        [Fact]
         //public void UncoveredMethod_Throws()
         //{
         //    var sut = new WeatherForecastService();
