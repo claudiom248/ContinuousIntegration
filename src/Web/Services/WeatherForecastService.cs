@@ -22,44 +22,44 @@
             return Task.FromResult(result);
         }
 
-        //public void UncoveredMethod()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void UncoveredMethod()
+        {
+            throw new NotImplementedException();
+        }
 
-        //public int PartiallyCoveredMethod(bool flag, byte param)
-        //{
-        //    if (flag) 
-        //    {
-        //        if (param == 1)
-        //        {
-        //            return 1;
-        //        }
-        //        else if (param == 2) 
-        //        {
-        //            return 2;
-        //        }
-        //        else
-        //        {
-        //            return 3;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (param == 1)
-        //        {
-        //            return 0;
-        //        }
-        //        else if (param == 2)
-        //        {
-        //            return 1;
-        //        }
-        //        else 
-        //        { 
-        //            return 2; 
-        //        }
-        //    }
-        //}
+        public int PartiallyCoveredMethod(bool flag, byte param)
+        {
+            if (flag)
+            {
+                if (param == 1)
+                {
+                    return 1;
+                }
+                else if (param == 2)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+            else
+            {
+                if (param == 1)
+                {
+                    return 0;
+                }
+                else if (param == 2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+        }
 
         private static IEnumerable<WeatherForecast> GetWeatherForecastCore()
         {
