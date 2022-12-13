@@ -21,10 +21,10 @@ namespace WebTests.Services
 
         [Theory]
         [InlineData(true, 1, 1)]
-        //[InlineData(true, 2, 2)]
-        //[InlineData(true, 3, 3)]
-        //[InlineData(false, 1, 0)]
-        //[InlineData(false, 2, 1)]
+        [InlineData(true, 2, 2)]
+        [InlineData(true, 3, 3)]
+        [InlineData(false, 1, 0)]
+        [InlineData(false, 2, 1)]
         public void PartiallyCovedereMethod_Branch1(bool flag, byte param, int expected)
         {
             var sut = new WeatherForecastService();
