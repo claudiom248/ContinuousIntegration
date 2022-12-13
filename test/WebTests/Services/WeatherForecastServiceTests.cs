@@ -13,11 +13,11 @@ namespace WebTests.Services
         }
 
         [Fact]
-        //public void UncoveredMethod_Throws()
-        //{
-        //    var sut = new WeatherForecastService();
-        //    Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
-        //}
+        public void UncoveredMethod_Throws()
+        {
+            var sut = new WeatherForecastService();
+            Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
+        }
 
         [Theory]
         [InlineData(true, 1, 1)]
