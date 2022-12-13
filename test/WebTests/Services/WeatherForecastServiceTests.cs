@@ -12,12 +12,12 @@ namespace WebTests.Services
             Assert.NotEmpty(weatherForecast);
         }
 
-        //[Fact]
-        //public void UncoveredMethod_Throws()
-        //{
-        //    var sut = new WeatherForecastService();
-        //    Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
-        //}
+        [Fact]
+        public void UncoveredMethod_Throws()
+        {
+            var sut = new WeatherForecastService();
+            Assert.Throws<NotImplementedException>(sut.UncoveredMethod);
+        }
 
         [Theory]
         [InlineData(true, 1, 1)]
