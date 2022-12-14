@@ -29,13 +29,13 @@
 
         public int PartiallyCoveredMethod(bool flag, byte param)
         {
-            if (flag) 
+            if (flag)
             {
                 if (param == 1)
                 {
                     return 1;
                 }
-                else if (param == 2) 
+                else if (param == 2)
                 {
                     return 2;
                 }
@@ -50,9 +50,13 @@
                 {
                     return 0;
                 }
-                else
+                else if (param == 2)
                 {
                     return 1;
+                }
+                else
+                {
+                    return 2;
                 }
             }
         }
